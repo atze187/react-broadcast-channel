@@ -21,7 +21,7 @@ function EmitMessageFromA() {
 function EmitMessageFromB() {
     return(
      <BroadcastEmiter channel="test_channel">
-       {({emit}) => {
+       {(emit) => {
          return <button onClick={() => emit(prompt()) }>
            send message from b
          </button>    
@@ -41,8 +41,8 @@ import {, BroadcastSubscriber, useBroadcastChannel } from "react-broadcast-chann
 function SubscriberA() {
   const { subscriber } = useBroadcastChannel("test_channel");
   useEffect(() => {
-    subscriber( payload => {
-      console.log(payload)
+    subscriber( data => {
+      console.log(data)
     })
   },[])
 
@@ -52,7 +52,7 @@ function SubscriberA() {
 function SubscriberB() {
   return(
    <BroadcastSubscriber channel="test_channel">
-    {({ data }) => (
+    {(data) => (
       <div>{data}<div>
     )}
    </BroadcastSubscriber>

@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private" : true,
   "scripts": {
     "postinstall": "npx husky install",
-    "husky:commit-msg" : "npx husky add .husky/commit-msg \"npx --no-install commitlint --edit $1\""
+    "husky:commit-msg": "npx husky add .husky/commit-msg \"npx --no-install commitlint --edit $1\""
   },
   "keywords": [],
   "author": "",

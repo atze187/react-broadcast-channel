@@ -1,0 +1,25 @@
+{
+ "compilerOptions": {
+     "lib": ["DOM","ESNext","DOM.Iterable"],
+    "rootDir": "./src",
+    "outDir": "./lib",
+    "checkJs": true,
+    "allowSyntheticDefaultImports" : true,
+    "declaration": true,
+    "jsx": "react",
+    "target": "ES3",
+    "module": "CommonJS",
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+ },
+ "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+ ],
+ "exclude": [
+     "node_modules",
+     "./src/**/*.test.*"
+ ]
+}

@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "allowJs": true,
+        "target": "ES5",
+        "module": "CommonJS",
+        "jsx": "react",
+        "allowSyntheticDefaultImports": true,
+        "noImplicitAny": true,
+        "declaration": true,
+        "checkJs": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "lib": ["DOM","DOM.Iterable","ESNext"]
+    },
+    "include": [
+        "./src"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
