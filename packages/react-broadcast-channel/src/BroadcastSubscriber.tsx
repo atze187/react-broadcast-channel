@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BroadcastSubscriberProps, EmitPostMessage } from './types';
 import useBroadcastChannel from './useBroadcastChannel';
 
@@ -11,12 +11,9 @@ const BroadcastSubscriber = ({
   const [message, setMessage] = useState<EmitPostMessage>(null);
   
   useEffect(() => {
-    const unsubscriber = subscribe((ev) => {
-      setMessage(ev.data);
+    subscribe((data) => {
+      setMessage(data);
     });
-    return () => {
-      unsubscriber();
-    };
   }, []);
 
   return children ? children(message) : null;

@@ -8,25 +8,22 @@ module.exports = {
     filename: 'index.js',
     library: {
       name: "react-broadcast-channel",
-      type: "umd"
+      type: "umd",
+      umdNamedDefine: true
     },
   },
   module: {
     rules: [
       {
-        test: /\.(tsx?)$/,
+        test: /\.(tsx?|jsx?)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'ts-loader',
         },
       },
     ],
   },
   resolve : {
     extensions : [".jsx", ".js" , ".ts" , ".tsx"]
-  },  
-  externals : {
-    "react" : "react",
-    "react-dom" : "react-dom"
   }
 };

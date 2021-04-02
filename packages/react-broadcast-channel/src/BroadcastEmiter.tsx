@@ -1,4 +1,3 @@
-import React from 'react';
 import { BroadcastEmiterProps } from './types';
 import useBroadcastChannel from './useBroadcastChannel';
 

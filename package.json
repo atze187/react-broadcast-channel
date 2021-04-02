@@ -6,7 +6,9 @@
   "private" : true,
   "scripts": {
     "postinstall": "npx husky install",
-    "husky:commit-msg": "npx husky add .husky/commit-msg \"npx --no-install commitlint --edit $1\""
+    "husky:commit-msg": "npx husky add .husky/commit-msg \"npx --no-install commitlint --edit $1\"",
+    "build:watch:component" : "cd packages/react-broadcast-channel && npm run build:watch",
+    "dev:example" : "cd packages/example && npm run dev"
   },
   "keywords": [],
   "author": "",

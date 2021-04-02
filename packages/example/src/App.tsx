@@ -7,13 +7,13 @@ registerChannel(CHANNEL);
 export default function App() {
   const { emit, subscribe } = useBroadcastChannel(CHANNEL);
   useEffect(() => {
-    subscribe((data: any) => {
-      console.log(data);
-    });
+    subscribe(( data : any ) => {
+        console.log(data)
+    })
   },[]);
   return (
     <div>
-      <button onClick={() => emit(prompt())}>emit</button>
+      <button onClick={()=>emit(prompt())}>emit</button>
     </div>
   );
 }

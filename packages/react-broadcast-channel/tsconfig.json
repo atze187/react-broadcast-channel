@@ -5,13 +5,14 @@
     "outDir": "./lib",
     "checkJs": true,
     "allowSyntheticDefaultImports" : true,
-    "declaration": true,
+    "noImplicitAny": false,
     "jsx": "react",
     "target": "ES3",
     "module": "CommonJS",
     "skipLibCheck": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "declaration": true,
     "esModuleInterop": true
  },
  "include": [
