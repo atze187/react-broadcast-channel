@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactElement } from "react";
 
 export type EmitMessage = {
     name : string,
@@ -12,11 +12,18 @@ export type EmitPostMessage = string | object | number | boolean;
 
 export type BroadcastEmiterProps = {
     channel : string,
-    children ?: (emit : (message : EmitPostMessage) => void) => ReactNode 
+    children ?: (emit : (message : EmitPostMessage) => void) => ReactElement 
 }
 
 export type BroadcastSubscriberProps = {
     channel : string,
-    children ?: (message : EmitPostMessage) => ReactNode | JSX.Element
+    children ?: (message : EmitPostMessage) =>  ReactElement
+}
 
+
+export type CallbackEvent = (callback : EmitPostMessage) => void;
+
+export interface BroadcastChannelItem {
+    broadcastChannel  : BroadcastChannel,
+    callbacks : CallbackEvent[]
 }

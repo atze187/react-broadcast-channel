@@ -1,4 +1,4 @@
-import { EmitMessage, ListBroadcastChannels } from './types';
+import { EmitMessage, ListBroadcastChannels } from '../types';
 
 export const channels: ListBroadcastChannels = [];
 

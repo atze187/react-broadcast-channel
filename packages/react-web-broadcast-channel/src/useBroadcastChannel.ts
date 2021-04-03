@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { emitMessageFromChannel, getChannelByName } from './channels';
+import { emitMessageFromChannel, getChannelByName } from './core/channels';
 import { EmitPostMessage } from './types';
 
 export default function useBroadcastChannel(name: string) {
@@ -14,15 +14,13 @@ export default function useBroadcastChannel(name: string) {
     callback(data);
   },[data]);
 
+  
   useEffect(() => {
     const channel = getChannelByName(name);
     const handler = (ev : MessageEvent<any>) => {
       setDataEmiter(ev.data);
     }
     channel && channel.addEventListener('message', handler);
-    return () => {
-      channel && channel.removeEventListener('message', handler);
-    };
   },[]);
 
   

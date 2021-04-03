@@ -5,6 +5,7 @@
     "outDir": "./lib",
     "checkJs": true,
     "allowSyntheticDefaultImports" : true,
+    "experimentalDecorators": true,
     "noImplicitAny": false,
     "jsx": "react",
     "target": "ES5",
