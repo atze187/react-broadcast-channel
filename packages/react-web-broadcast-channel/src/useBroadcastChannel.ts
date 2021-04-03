@@ -1,32 +1,27 @@
-import { useCallback, useEffect, useState } from 'react';
-import { emitMessageFromChannel, getChannelByName } from './core/channels';
-import { EmitPostMessage } from './types';
+import { useEffect, useState } from 'react';
+import pubsubChannels from './core/pubsubChannels';
+import { CallbackEvent, EmitPostMessage } from './types';
 
 export default function useBroadcastChannel(name: string) {
   const [ data, setDataEmiter ] = useState(null);
 
   const emit = (message: EmitPostMessage) => {
     setDataEmiter(message);
-    emitMessageFromChannel({ name, message });
+    pubsubChannels.emit(name,message);
   };
 
-  const subscribe = useCallback(( callback : (payload : any) => void ) => {
-    callback(data);
-  },[data]);
-
+  const subscribe = (callback : CallbackEvent) => pubsubChannels.subscribe(name,callback);
   
   useEffect(() => {
-    const channel = getChannelByName(name);
-    const handler = (ev : MessageEvent<any>) => {
-      setDataEmiter(ev.data);
-    }
-    channel && channel.addEventListener('message', handler);
+    subscribe(data => {
+      setDataEmiter(data);
+    })
   },[]);
 
   
   return {
     emit,
     subscribe,
-    data
+    data,
   };
 }

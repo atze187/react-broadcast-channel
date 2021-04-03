@@ -21,7 +21,7 @@ export type BroadcastSubscriberProps = {
 }
 
 
-export type CallbackEvent = (callback : EmitPostMessage) => void;
+export type CallbackEvent = (data : EmitPostMessage) => void;
 
 export interface BroadcastChannelItem {
     broadcastChannel  : BroadcastChannel,
