@@ -9,8 +9,7 @@
   "types": "lib/types/index.d.ts",
   "scripts": {
     "build": "npx webpack --mode=production",
-    "build:watch": "npx webpack --watch --mode=production",
-    "copy:watch" : "npx copy-and-watch --watch lib/**/* ../../../example/src/lib"
+    "build:watch": "npx webpack --watch --mode=production"
   },
   "directories": {
     "lib": "lib",
@@ -39,7 +38,6 @@
     "@types/react-dom": "^17.0.3",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
-    "copy-and-watch": "^0.1.5",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
     "ts-loader": "^8.1.0",
