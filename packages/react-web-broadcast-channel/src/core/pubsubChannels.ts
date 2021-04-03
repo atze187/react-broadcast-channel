@@ -1,5 +1,6 @@
 import { BroadcastChannelItem, CallbackEvent, EmitPostMessage } from '../types';
 import isEmpty from '../utils/isEmpty';
+import { createNewBroadcastChannel, emitMessageFromChannel } from './channels';
 
 const events: Record<string, BroadcastChannelItem> = {};
 const pubsubChannels = {
@@ -9,7 +10,7 @@ const pubsubChannels = {
         events[channel].callbacks.push(callback);
       } else {
         events[channel] = {
-          broadcastChannel: new BroadcastChannel(channel),
+          broadcastChannel: createNewBroadcastChannel(channel),
           callbacks: [callback],
         };
       }
@@ -24,7 +25,7 @@ const pubsubChannels = {
     const getCurrentChannel = events[channel];
     if (getCurrentChannel || getCurrentChannel !== null) {
       const { callbacks, broadcastChannel } = getCurrentChannel;
-      broadcastChannel.postMessage(data);
+      emitMessageFromChannel(broadcastChannel).send(data);
       callbacks.forEach((currentCallback: CallbackEvent) => {
         currentCallback(data);
       });

@@ -1,19 +1,27 @@
-import { EmitMessage, ListBroadcastChannels } from '../types';
+import { EmitPostMessage, ListBroadcastChannels } from '../types';
 
 export const channels: ListBroadcastChannels = [];
 
-export function createNewChannel(nameChannel: string) {
-  const channel = new BroadcastChannel(nameChannel);
+export function createNewBroadcastChannel(channelName: string) {
+  const channel = new BroadcastChannel(channelName);
   return channel;
+}
+
+export function emitMessageFromChannel(channel : BroadcastChannel) {
+  return {
+    send(message : EmitPostMessage) {
+      channel.postMessage(message);
+    }
+  }
 }
 
 export function registerChannel(nameChannel: string | string[]) {
   if(Array.isArray(nameChannel)) {
-    const parseChannels = nameChannel.map((currentNameChannel) => createNewChannel(currentNameChannel));
+    const parseChannels = nameChannel.map((currentNameChannel) => createNewBroadcastChannel(currentNameChannel));
     channels.push(...parseChannels);
     return;
   }
-  channels.push(createNewChannel(nameChannel));
+  channels.push(createNewBroadcastChannel(nameChannel));
 }
 
 export function getChannelByName(name: string): BroadcastChannel | null {
@@ -26,10 +34,4 @@ export function getChannelByName(name: string): BroadcastChannel | null {
   return channel;
 }
 
-export function emitMessageFromChannel({ name, message }: EmitMessage) {
-  channels.forEach((channel) => {
-    if (channel.name === name) {
-      channel.postMessage(message);
-    }
-  });
-}
+
