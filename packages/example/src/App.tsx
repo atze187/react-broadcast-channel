@@ -1,10 +1,21 @@
 import React from 'react';
+import { useBroadcastChannel  } from "./lib"
 
+
+const TEST_CHANNEL = "TEST_CHANNEL";
 
 export default function App() {
-  return (
+  const { emit, data } = useBroadcastChannel(TEST_CHANNEL);
+
+  const sendMessage = () => {
+    emit(prompt())
+  }
+
+
+  return(
     <div>
-      hola
+      <button onClick={sendMessage}>emit event</button>
+      <h1>{data}</h1>
     </div>
-  );
+  )
 }
