@@ -7,7 +7,7 @@
     "allowSyntheticDefaultImports" : true,
     "noImplicitAny": false,
     "jsx": "react",
-    "target": "ES3",
+    "target": "ES5",
     "module": "CommonJS",
     "skipLibCheck": true,
     "moduleResolution": "node",

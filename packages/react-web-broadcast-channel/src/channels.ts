@@ -7,7 +7,12 @@ export function createNewChannel(nameChannel: string) {
   return channel;
 }
 
-export function registerChannel(nameChannel: string) {
+export function registerChannel(nameChannel: string | string[]) {
+  if(Array.isArray(nameChannel)) {
+    const parseChannels = nameChannel.map((currentNameChannel) => createNewChannel(currentNameChannel));
+    channels.push(...parseChannels);
+    return;
+  }
   channels.push(createNewChannel(nameChannel));
 }
 

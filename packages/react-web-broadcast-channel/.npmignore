@@ -1,4 +1,5 @@
 src
+.babelrc
 node_modules
 tsconfig.json
 webpack.config.js

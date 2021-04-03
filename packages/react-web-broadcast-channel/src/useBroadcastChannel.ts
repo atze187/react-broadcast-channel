@@ -6,7 +6,7 @@ export default function useBroadcastChannel(name: string) {
   const [ data, setDataEmiter ] = useState(null);
 
   const emit = (message: EmitPostMessage) => {
-    setDataEmiter(data);
+    setDataEmiter(message);
     emitMessageFromChannel({ name, message });
   };
 
@@ -29,5 +29,6 @@ export default function useBroadcastChannel(name: string) {
   return {
     emit,
     subscribe,
+    data
   };
 }

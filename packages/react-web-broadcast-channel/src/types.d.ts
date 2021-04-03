@@ -17,6 +17,6 @@ export type BroadcastEmiterProps = {
 
 export type BroadcastSubscriberProps = {
     channel : string,
-    children ?: (message : EmitPostMessage) => ReactNode 
+    children ?: (message : EmitPostMessage) => ReactNode | JSX.Element
 
 }

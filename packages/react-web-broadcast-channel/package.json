@@ -1,7 +1,7 @@
 {
-  "name": "react-broadcast-channel",
+  "name": "react-web-broadcast-channel",
   "version": "1.0.0",
-  "description": "",
+  "description": "Implementation of [**BroadcastChannel API**](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API) in react to emit and subscribe any messages to a particular channel.",
   "keywords": [],
   "author": "jhony-24",
   "license": "ISC",
@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/jhony-24/react-broadcast-channel#readme",
   "peerDependencies": {
-    "react": ">=15.0.0",
-    "react-dom": ">=15.0.0"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.13",

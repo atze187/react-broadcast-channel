@@ -6,7 +6,7 @@ Implementation of [**BroadcastChannel API**](https://developer.mozilla.org/en-US
 
 ```javascript
 import { useEffect } from "react";
-import { BroadcastSubscriber, BroadcastEmiter, useBroadcastChannel } from "react-broadcast-channel";
+import { BroadcastSubscriber, BroadcastEmiter, useBroadcastChannel } from "react-web-broadcast-channel";
 
 function EmitMessageFromA() {
     const { emit } = useBroadcastChannel("test_channel");
@@ -36,7 +36,7 @@ function EmitMessageFromB() {
 ## Suscribe a channel 
 
 ```javascript
-import {, BroadcastSubscriber, useBroadcastChannel } from "react-broadcast-channel";
+import {, BroadcastSubscriber, useBroadcastChannel } from "react-web-broadcast-channel";
 
 function SubscriberA() {
   const { subscriber } = useBroadcastChannel("test_channel");
