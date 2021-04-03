@@ -1,11 +1,6 @@
 import { ReactElement } from "react";
 
-export type EmitMessage = {
-    name : string,
-    message : string | object | number | boolean
-}
 
-export type ListBroadcastChannels = BroadcastChannel[]
 export type EmitPostMessage = string | object | number | boolean;
 
 // component and hooks types
