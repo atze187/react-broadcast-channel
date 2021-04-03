@@ -2,6 +2,35 @@
 
 Implementation of [**BroadcastChannel API**](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API) in react to emit and subscribe any messages to a particular channel.
 
+
+## Introduction
+
+If you open other tab in your browser, you cant see how the message sent is updated in all tabs.
+
+```javascript
+import React from 'react';
+import { useBroadcastChannel } from "react-web-broadcast-channel"
+
+
+const TEST_CHANNEL = "TEST_CHANNEL";
+
+export default function App() {
+  const { emit, data } = useBroadcastChannel(TEST_CHANNEL);
+
+  const sendMessage = () => {
+    emit(prompt())
+  }
+
+
+  return(
+    <div>
+      <button onClick={sendMessage}>emit event</button>
+      <h1>{data}</h1>
+    </div>
+  )
+}
+```
+
 ## Emiting messages to channel
 
 ```javascript
@@ -9,7 +38,7 @@ import { useEffect } from "react";
 import { BroadcastSubscriber, BroadcastEmiter, useBroadcastChannel } from "react-web-broadcast-channel";
 
 function EmitMessageFromA() {
-    const { emit } = useBroadcastChannel("test_channel");
+    const { emit } = useBroadcastChannel(TEST_CHANNEL);
     
     const sendMessage = () => {
       emit(prompt())
@@ -20,7 +49,7 @@ function EmitMessageFromA() {
 
 function EmitMessageFromB() {
     return(
-     <BroadcastEmiter channel="test_channel">
+     <BroadcastEmiter channel={TEST_CHANNEL}>
        {(emit) => {
          return <button onClick={() => emit(prompt()) }>
            send message from b
@@ -39,7 +68,7 @@ function EmitMessageFromB() {
 import {, BroadcastSubscriber, useBroadcastChannel } from "react-web-broadcast-channel";
 
 function SubscriberA() {
-  const { subscriber } = useBroadcastChannel("test_channel");
+  const { subscriber } = useBroadcastChannel(TEST_CHANNEL);
   useEffect(() => {
     subscriber( data => {
       console.log(data)
@@ -51,7 +80,7 @@ function SubscriberA() {
 
 function SubscriberB() {
   return(
-   <BroadcastSubscriber channel="test_channel">
+   <BroadcastSubscriber channel={TEST_CHANNEL}>
     {(data) => (
       <div>{data}<div>
     )}
