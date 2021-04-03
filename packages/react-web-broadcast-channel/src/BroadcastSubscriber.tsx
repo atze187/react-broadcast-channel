@@ -1,20 +1,20 @@
-import { useEffect } from 'react';
-import { getChannelByName } from './core/channels';
+import { useEffect, useState } from 'react';
+import pubsubChannels from './core/pubsubChannels';
 import { BroadcastSubscriberProps } from './types';
 
 const BroadcastSubscriber = ({
   children,
   channel,
 }: BroadcastSubscriberProps) => {
+  const [  data, setData  ] = useState(null);
+  
   useEffect(() => {
-    const ch = getChannelByName(channel);
-    const handler = (ev: MessageEvent<any>) => {
-      console.log("from subscriber component",ch)
-      console.log(ev.data);
-    };
-    ch && ch.addEventListener('message', handler);
+    pubsubChannels.subscribe(channel,(payloadData) => {
+      setData(payloadData);
+    })
   }, []);
-  return children ? children([]) : null;
+
+  return children ? children(data) : null;
 };
 
 export default BroadcastSubscriber;
