@@ -1,7 +1,11 @@
 # React broadcast channel
 
-Implementation of [**BroadcastChannel API**](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API) in react to emit and subscribe any messages to a particular channel.
+![last commit](https://img.shields.io/github/last-commit/jhony-24/react-broadcast-channel)
+![version](https://img.shields.io/github/package-json/v/jhony-24/react-broadcast-channel)
+![licence](https://img.shields.io/github/license/jhony-24/react-broadcast-channel)
+![code](https://img.shields.io/github/languages/top/jhony-24/react-broadcast-channel)
 
+Implementation of [**BroadcastChannel API**](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API) in react to emit and subscribe any messages to a particular channel.
 
 ## Introduction
 
@@ -68,11 +72,14 @@ function EmitMessageFromB() {
 import {, BroadcastSubscriber, useBroadcastChannel } from "react-web-broadcast-channel";
 
 function SubscriberA() {
-  const { subscriber } = useBroadcastChannel(TEST_CHANNEL);
+  const { subscribe } = useBroadcastChannel(TEST_CHANNEL);
   useEffect(() => {
-    subscriber( data => {
+    const unsubscribe = subscribe( data => {
       console.log(data)
     })
+    return () => {
+      unsubscribe();
+    }
   },[])
 
   return <div>Subscribe from A</div>
