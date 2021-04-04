@@ -1,1 +1,1 @@
-yarn run build:watch:component
+yarn run build:watch

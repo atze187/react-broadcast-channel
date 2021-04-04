@@ -13,9 +13,12 @@ export default function useBroadcastChannel(name: string) {
   const subscribe = (callback : CallbackEvent) => pubsubChannels.subscribe(name,callback);
   
   useEffect(() => {
-    subscribe(data => {
+    const unsubscribe = subscribe(data => {
       setDataEmiter(data);
     })
+    return () => {
+      unsubscribe();
+    }
   },[]);
 
   

@@ -1,18 +1,24 @@
 {
   "name": "reactbc",
   "version": "1.0.0",
-  "description": "",
+  "description": "Implementation of BroadcastChannel API in react to emit and subscribe any messages to a particular channel.",
   "main": "index.js",
   "private" : true,
   "scripts": {
     "postinstall": "npx husky install",
     "husky:commit-msg": "npx husky add .husky/commit-msg \"npx --no-install commitlint --edit $1\"",
-    "build:watch:component" : "cd packages/react-web-broadcast-channel && npm run build:watch",
-    "dev:example" : "cd packages/example && npm run dev"
+    "build:watch" : "cd packages/react-web-broadcast-channel && yarn run build:watch",
+    "build" : "cd packages/react-web-broadcast-channel && yarn run build",
+    "example" : "cd packages/example && yarn run dev"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "react",
+    "library",
+    "web",
+    "typescript"
+  ],
+  "author": "jhony-24",
+  "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",

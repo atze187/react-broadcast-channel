@@ -1,1 +1,1 @@
-yarn run dev:example
+yarn run example

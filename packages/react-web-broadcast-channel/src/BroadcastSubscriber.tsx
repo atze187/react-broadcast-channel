@@ -9,9 +9,12 @@ const BroadcastSubscriber = ({
   const [  data, setData  ] = useState(null);
   
   useEffect(() => {
-    pubsubChannels.subscribe(channel,(payloadData) => {
+    const unsubscribe = pubsubChannels.subscribe(channel,(payloadData) => {
       setData(payloadData);
     })
+    return () => {
+      unsubscribe();
+    }
   }, []);
 
   return children ? children(data) : null;
