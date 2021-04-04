@@ -1,6 +1,6 @@
 {
   "name": "react-web-broadcast-channel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Implementation of BroadcastChannel API in react to emit and subscribe any messages to a particular channel.",
   "keywords": [
     "react",

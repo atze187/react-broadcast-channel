@@ -1,13 +1,24 @@
 # React broadcast channel
 
 ![last commit](https://img.shields.io/github/last-commit/jhony-24/react-broadcast-channel)
-![version](https://img.shields.io/github/package-json/v/jhony-24/react-broadcast-channel)
+![version](https://img.shields.io/npm/v/react-web-broadcast-channel?color=red)
+![size](https://img.shields.io/bundlephobia/min/react-web-broadcast-channel?color=orange)
 ![licence](https://img.shields.io/github/license/jhony-24/react-broadcast-channel)
 ![code](https://img.shields.io/github/languages/top/jhony-24/react-broadcast-channel)
 
 Implementation of [**BroadcastChannel API**](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API) in react to emit and subscribe any messages to a particular channel.
 
-## Introduction
+
+## Installation
+
+To install, you can use npm or yarn:
+
+```console
+$ npm install react-web-broadcast-channel
+$ yarn add react-web-broadcast-channel
+```
+
+## Examples
 
 If you open other tab in your browser, you cant see how the message sent is updated in all tabs.
 
