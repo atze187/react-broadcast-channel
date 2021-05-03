@@ -8,10 +8,9 @@
 
 Implementation of [**BroadcastChannel API**](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API) in react to emit and subscribe any messages to a particular channel.
 
+<a href="https://codesandbox.io/s/react-web-broadcast-channel-demo-4t2vk" target="_blank">DEMO</a>
 
 ## Installation
-
-<a href="https://codesandbox.io/s/react-web-broadcast-channel-demo-4t2vk" target="_blank">DEMO</a>
 
 To install, you can use npm or yarn:
 
