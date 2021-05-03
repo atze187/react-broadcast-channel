@@ -11,6 +11,8 @@ Implementation of [**BroadcastChannel API**](https://developer.mozilla.org/en-US
 
 ## Installation
 
+<a href="https://codesandbox.io/s/react-web-broadcast-channel-demo-4t2vk" target="_blank">DEMO</a>
+
 To install, you can use npm or yarn:
 
 ```console
@@ -80,7 +82,7 @@ function EmitMessageFromB() {
 ## Suscribe a channel 
 
 ```javascript
-import {, BroadcastSubscriber, useBroadcastChannel } from "react-web-broadcast-channel";
+import { BroadcastSubscriber, useBroadcastChannel } from "react-web-broadcast-channel";
 
 function SubscriberA() {
   const { subscribe } = useBroadcastChannel(TEST_CHANNEL);
