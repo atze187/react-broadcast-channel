@@ -17,6 +17,7 @@ const pubsubChannels = {
           callbacks: [callback],
         };
       }
+
       events[channel].broadcastChannel.onmessage = (ev: MessageEvent<any>) => {
         events[channel].callbacks.forEach((currentCallback: CallbackEvent) => {
           currentCallback(ev.data as EmitPostMessage);
@@ -52,6 +53,10 @@ const pubsubChannels = {
       });
     }
   },
+
+  exists(channel : string) {
+    return Object.keys(events).includes(channel);
+  }
 
 };
 

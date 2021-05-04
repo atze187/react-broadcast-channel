@@ -1,10 +1,10 @@
 import React,{ useEffect, useRef, useState } from "react";
-import { useBroadcastChannel  } from "./lib"
+import { useBroadcastChannelEmitter, useBroadcastChannelSubscribe  } from "./lib"
 
 const TEST_CHANNEL = "TEST_CHANNEL";
 
 function SubmitMessage() {
-  const { emit } = useBroadcastChannel(TEST_CHANNEL);
+  const { emit } = useBroadcastChannelEmitter(TEST_CHANNEL);
   const input = useRef<HTMLInputElement>(null);
   
   const sendMessage = () => {
@@ -23,19 +23,14 @@ function SubmitMessage() {
 
 const ListMessages = () => {
   const [messages, setMessages] = useState([]);
-  const { subscribe } = useBroadcastChannel(TEST_CHANNEL);
+  const { data } = useBroadcastChannelSubscribe(TEST_CHANNEL);
   useEffect(() => {
-    const unsubscribe = subscribe((message) => {
-      setMessages((prevMessages) => [...prevMessages, message]);
-    });
-    return () => {
-      unsubscribe();
-    };
-  }, []);
+    setMessages((prevMessages) => [...prevMessages, data]);
+  }, [data]);
   return (
     <ol>
       {messages.map((item, id) => (
-        <li key={id}>{item.message}</li>
+        <li key={id}>{item?.message}</li>
       ))}
     </ol>
   );
