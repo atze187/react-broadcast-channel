@@ -25,13 +25,13 @@ If you open other tab in your browser, you cant see how the message sent is upda
 
 ```javascript
 import React from 'react';
-import { useBroadcastChannel } from "react-web-broadcast-channel"
+import { useBroadcastChannelEmitter } from "react-web-broadcast-channel"
 
 
 const TEST_CHANNEL = "TEST_CHANNEL";
 
 export default function App() {
-  const { emit, data } = useBroadcastChannel(TEST_CHANNEL);
+  const { emit, data } = useBroadcastChannelEmitter(TEST_CHANNEL);
 
   const sendMessage = () => {
     emit(prompt())
@@ -51,10 +51,14 @@ export default function App() {
 
 ```javascript
 import { useEffect } from "react";
-import { BroadcastSubscriber, BroadcastEmiter, useBroadcastChannel } from "react-web-broadcast-channel";
+import { 
+  BroadcastSubscriber, 
+  BroadcastEmiter, 
+  useBroadcastChannelEmitter 
+} from "react-web-broadcast-channel";
 
 function EmitMessageFromA() {
-    const { emit } = useBroadcastChannel(TEST_CHANNEL);
+    const { emit } = useBroadcastChannelEmitter(TEST_CHANNEL);
     
     const sendMessage = () => {
       emit(prompt())
@@ -81,18 +85,13 @@ function EmitMessageFromB() {
 ## Suscribe a channel 
 
 ```javascript
-import { BroadcastSubscriber, useBroadcastChannel } from "react-web-broadcast-channel";
+import { BroadcastSubscriber, useBroadcastChannelSubscribe } from "react-web-broadcast-channel";
 
 function SubscriberA() {
-  const { subscribe } = useBroadcastChannel(TEST_CHANNEL);
+  const { data } = useBroadcastChannelSubscribe(TEST_CHANNEL);
   useEffect(() => {
-    const unsubscribe = subscribe( data => {
-      console.log(data)
-    })
-    return () => {
-      unsubscribe();
-    }
-  },[])
+    console.log(data)
+  },[data])
 
   return <div>Subscribe from A</div>
 }
