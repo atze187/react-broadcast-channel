@@ -1,6 +1,6 @@
 {
   "name": "react-web-broadcast-channel",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Implementation of BroadcastChannel API in react to emit and subscribe any messages to a particular channel.",
   "keywords": [
     "react",
@@ -11,7 +11,7 @@
   "author": "jhony-24",
   "license": "MIT",
   "main": "lib/index.js",
-  "types": "lib/types/index.d.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "npx webpack --mode=production",
     "build:watch": "npx webpack --watch --mode=production"
