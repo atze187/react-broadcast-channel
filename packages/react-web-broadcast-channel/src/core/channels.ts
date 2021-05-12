@@ -5,12 +5,22 @@ export function createNewBroadcastChannel(channelName: string) {
   return channel;
 }
 
-export function emitMessageFromChannel(channel : BroadcastChannel) {
+export function emitMessageFromChannel(channel: BroadcastChannel) {
   return {
-    send(message : EmitPostMessage) {
+    send(message: EmitPostMessage) {
       channel.postMessage(message);
-    }
-  }
+    },
+  };
 }
 
+export function broadcastChannelListener(
+  channel: BroadcastChannel,
+  handler: (ev: MessageEvent<EmitPostMessage>) => void
+) {
 
+  channel.addEventListener('message', handler);
+
+  return () => {
+    channel.removeEventListener("message",handler);
+  };
+}
