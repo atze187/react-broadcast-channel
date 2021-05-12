@@ -2,11 +2,11 @@ import { useState } from 'react';
 import pubsubChannels from './core/pubsubChannels';
 import { EmitPostMessage } from './types';
 
-export default function useBroadcastEmitter(name: string) {
-  const [ data, setDataEmiter ] = useState(null);
+export default function useBroadcastEmitter<T extends EmitPostMessage>(name: string) {
+  const [ data, setDataEmiter ] = useState<T>(null);
 
   const emit = (message: EmitPostMessage) => {
-    setDataEmiter(message);
+    setDataEmiter(message as T);
     pubsubChannels.emit(name,message);
   };
   

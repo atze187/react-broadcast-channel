@@ -18,14 +18,14 @@ const pubsubChannels = {
         };
       }
 
-      events[channel].broadcastChannel.onmessage = (ev: MessageEvent<any>) => {
+      events[channel].broadcastChannel.onmessage = (ev: MessageEvent<EmitPostMessage>) => {
         events[channel].callbacks.forEach((currentCallback: CallbackEvent) => {
           currentCallback(ev.data as EmitPostMessage);
         });
       };
       const { broadcastChannel, callbacks } = events[channel];
 
-      const handler = (ev: MessageEvent<any>) => {
+      const handler = (ev: MessageEvent<EmitPostMessage>) => {
         callbacks.forEach((currentCallback: CallbackEvent) => {
           if (typeof currentCallback === 'function') {
             currentCallback(ev.data as EmitPostMessage);
