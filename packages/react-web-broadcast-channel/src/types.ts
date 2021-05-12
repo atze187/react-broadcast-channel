@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 
+export type Handler<Payload> = (payload ?: Payload) => void
 
 export type EmitPostMessage = string | object | number | boolean;
 
