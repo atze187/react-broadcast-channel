@@ -46,7 +46,7 @@ const pubsubChannels = {
     const getCurrentChannel = events[channel];
     if (getCurrentChannel || getCurrentChannel !== null) {
       const { callbacks, broadcastChannel } = getCurrentChannel;
-      broadcastChannel.postMessage(data);
+      //broadcastChannel.postMessage(data);
       emitMessageFromChannel(broadcastChannel).send(data);
       callbacks.forEach((currentCallback: CallbackEvent) => {
         currentCallback(data);
