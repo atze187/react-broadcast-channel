@@ -5,8 +5,6 @@
   "main": "index.js",
   "private" : true,
   "scripts": {
-    "postinstall": "npx husky install",
-    "husky:commit-msg": "npx husky add .husky/commit-msg \"npx --no-install commitlint --edit $1\"",
     "build:watch" : "cd packages/react-web-broadcast-channel && yarn run build:watch",
     "build" : "cd packages/react-web-broadcast-channel && yarn run build",
     "example" : "cd packages/example && yarn run dev"
